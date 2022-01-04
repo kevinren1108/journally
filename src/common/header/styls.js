@@ -62,6 +62,9 @@ export const  NavSearch =  styled.input.attrs({
   &::placeholder {
     color: #999;
   }
+  &.focused {
+    width: 220px;
+  }
 `
 
 export const Addition = styled.div`

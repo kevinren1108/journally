@@ -7,11 +7,11 @@ export default (state = defaultState, action) => {
     return {
       focused: true
     }
-  }if(action.type === 'search_blur'){
+  }
+  if(action.type === 'search_blur'){
     return {
       focused: false
     }
   }
-
   return state;
 }
