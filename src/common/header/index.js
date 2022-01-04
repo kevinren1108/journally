@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as actionCreators from './store/actionCreator.js'
 import{
   HeaderWrapper,
   Logo,
@@ -9,6 +10,7 @@ import{
   Addition,
   Button
 } from './styls.js'
+
 
 const Header = (props) => {
   return ( 
@@ -33,7 +35,7 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    focused: state.focused
+    focused: state.header.focused
   }
 }
 
