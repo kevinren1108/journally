@@ -2,7 +2,8 @@ import * as actionTypes from './actionTypes'
 import { fromJS } from 'immutable'
 
 const defaultState = fromJS({
-  focused: false
+  focused: false,
+  trendList: []
 });
 
 export default (state = defaultState, action) => {
@@ -11,6 +12,15 @@ export default (state = defaultState, action) => {
   }
   if(action.type === actionTypes.SEARCH_BLUR){
     return state.set('focused',false)
+  }
+  if(action.type === actionTypes.UPDATE_TRENDING_LIST){
+    const tempState = JSON.parse(JSON.stringify(state));
+    /*for(var i = 0;i<action.newTrendingList.length;i++){
+      console.log(action.newTrendingList[i].itemName)
+      tempState.list.push(action.newListFromAPI[i].item)
+    }*/
+    const newState = state.set('trendList',action.newTrendingList);
+    return newState
   }
   return state;
 }

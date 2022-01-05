@@ -1,4 +1,4 @@
-import  styled from 'styled-components'
+import styled from 'styled-components'
 import logoPic from '../../statics/logo.jpg'
 
 export const HeaderWrapper = styled.div`
