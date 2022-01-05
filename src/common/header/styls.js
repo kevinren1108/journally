@@ -21,7 +21,7 @@ background-size: contain;
 `
 
 export const Nav = styled.div`
-  width: 70%;
+  width: 700px;
   height: 100%;
   padding-right: 70px;
   box-sizing: border-box;
@@ -63,7 +63,7 @@ export const  NavSearch =  styled.input.attrs({
     color: #999;
   }
   &.focused {
-    width: 220px;
+    width: 240px;
   }
 `
 
@@ -91,4 +91,49 @@ export const Button = styled.button`
     color: #fff;
     background: #ec6149;
   }
+`
+
+export const SearchWrapper = styled.div`
+  position: relative;
+  float: left;
+`
+
+export const SearchInfo = styled.div`
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 200px;
+  margin-left: 20px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+`
+
+export const SearchInfoTitle = styled.div`
+  margin-top: 10px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #787878
+`
+
+export const SearchInfoSwitch = styled.div`
+ float: right;
+ font-size: 13px;
+`
+
+export const SearchInfoItem = styled.a`
+  display: block;
+  float: left;
+  font-size: 12px;
+  padding: 0 5px;
+  line-height: 20px;
+  color: #969696;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+`
+
+export const SearchInfoList = styled.div`
+ overflow: hidden;
 `

@@ -1,7 +1,9 @@
+import * as actionTypes from './actionTypes.js'
+
 export const searchFocus = () => ({
-  type: 'search_focus'
+  type: actionTypes.SEARCH_FOCUS
 })
 
 export const searchBlur = () => ({
-  type: 'search_blur'
+  type: actionTypes.SEARCH_BLUR
 })
