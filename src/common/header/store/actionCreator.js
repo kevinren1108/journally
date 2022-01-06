@@ -34,3 +34,15 @@ export const getTrendList = () => {
     })
   }
 }
+
+export const searchTrendingMouseIn = () => ({
+  type: actionTypes.UPDATA_MOUSE_IN
+})
+
+export const searchTrendingMouseOut = () => ({
+  type: actionTypes.UPDATA_MOUSE_OUT
+})
+
+export const searchTrendingPageIndex = () => ({
+  type: actionTypes.UPDATA_SEARCH_TRENDING_PAGE_INDEX
+})

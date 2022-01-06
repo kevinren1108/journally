@@ -1,5 +1,6 @@
 export const SEARCH_FOCUS = 'header/SEARCH_FOCUS'
 export const SEARCH_BLUR = 'header/SEARCH_BLUR'
 export const UPDATE_TRENDING_LIST = 'header/UPDATE_TRENDING_LIST'
-
-
+export const UPDATA_MOUSE_IN = 'header/UPDATA_MOUSE_IN'
+export const UPDATA_MOUSE_OUT = 'header/UPDATA_MOUSE_OUT'
+export const UPDATA_SEARCH_TRENDING_PAGE_INDEX =  'header/UPDATA_SEARCH_TRENDING_PAGE_INDEX'
