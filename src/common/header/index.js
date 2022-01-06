@@ -13,9 +13,16 @@ import{
 
 
 class Header extends Component {
-
   getListArea() {
-    if(this.props.focused) {
+    const { focused, trendList, searchTrendingPageIndex } = this.props
+    const pageList = [];
+    
+    for(let i = (searchTrendingPageIndex-1*10); i< searchTrendingPageIndex*10; i++){
+      pageList.push()
+    }
+    //https://www.youtube.com/watch?v=wUXBHCrRN14&list=PL9nxfq1tlKKnza3MPogWqaYIPtdW_G2lF&index=60&ab_channel=JomyKing
+
+    if(focused) {
       return (
         <SearchInfo>
           <SearchInfoTitle>
@@ -26,7 +33,7 @@ class Header extends Component {
           </SearchInfoTitle>
           <SearchInfoList>
             {
-              this.props.trendList.map((item,index) => {
+              trendList.map((item,index) => {
                 return <SearchInfoItem key={item+index}>{item}</SearchInfoItem>
               })
             }
@@ -38,7 +45,10 @@ class Header extends Component {
     }
   }
 
+  
+
   render() { 
+    const { handleInputFocused, handleInputBlur , focused } = this.props
     return ( 
     <HeaderWrapper> 
       <Logo/>
@@ -47,9 +57,9 @@ class Header extends Component {
         <NavItem className='right'>Sign in</NavItem>
         <SearchWrapper>
           <NavSearch 
-            onFocus={this.props.handleInputFocused}
-            onBlur={this.props.handleInputBlur}
-            className={this.props.focused ? 'focused' : ''}
+            onFocus={handleInputFocused}
+            onBlur={handleInputBlur}
+            className={focused ? 'focused' : ''}
           />
           {this.getListArea()}
         </SearchWrapper>
@@ -66,8 +76,8 @@ const mapStateToProps = (state) => {
   return {
     focused: state.getIn(['header','focused']),
     //focused: state.get('header').get('focused') 
-    trendList: state.getIn(['header','trendList'])
-    
+    trendList: state.getIn(['header','trendList']),
+    searchTrendingPageIndex: state.getIn(['header','searchTrendingPage'])
   }
 }
 

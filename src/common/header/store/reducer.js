@@ -3,7 +3,9 @@ import { fromJS } from 'immutable'
 
 const defaultState = fromJS({
   focused: false,
-  trendList: []
+  trendList: [],
+  searchTrendingPage: 1,
+  searchTrendingPageTotal: 1
 });
 
 export default (state = defaultState, action) => {
@@ -19,7 +21,7 @@ export default (state = defaultState, action) => {
       console.log(action.newTrendingList[i].itemName)
       tempState.list.push(action.newListFromAPI[i].item)
     }*/
-    const newState = state.set('trendList',action.newTrendingList);
+    const newState = state.set('trendList',action.newTrendingList).set('searchTrendingPageTotal', action.totalPage);
     return newState
   }
   return state;
