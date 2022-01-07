@@ -3,6 +3,9 @@ import { Provider } from 'react-redux'
 import { BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from './common/header/index.js';
 import store from './store/index.js'
+import Home from './pages/home'
+import Detail from './pages/detail'
+
 
 class App extends Component {
   constructor(props) {
@@ -15,8 +18,8 @@ class App extends Component {
         <Header />
         <BrowserRouter>
           <Routes>
-            <Route path='/' exact element={<div>home</div>}>home</Route>
-            <Route path='/detail' exact element={<div>detail</div>}>home</Route>
+            <Route path='/' exact element={<Home />}></Route>
+            <Route path='/detail' exact element={<Detail />}></Route>
           </Routes>
         </BrowserRouter>
       </Provider>
