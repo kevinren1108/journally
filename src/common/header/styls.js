@@ -119,6 +119,7 @@ export const SearchInfoTitle = styled.div`
 export const SearchInfoSwitch = styled.div`
  float: right;
  font-size: 13px;
+ cursor: pointer;
 `
 
 export const SearchInfoItem = styled.a`

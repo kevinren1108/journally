@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actionTypes from './store/actionTypes.js'
 import { actionCreators } from './store/index.js';
 import{
   HeaderWrapper, Logo,
   Nav,NavItem,
   SearchWrapper, NavSearch, SearchInfo, SearchInfoTitle, 
   SearchInfoSwitch, SearchInfoItem, SearchInfoList,
+  searchTrendingPageTotal,searchTrendingPageIndex,
   Addition,
   Button,
 } from './styls.js'
@@ -15,7 +15,8 @@ import{
 class Header extends Component {
   getListArea() {
     const { focused, trendList, searchTrendingPageIndex, searchTrendingMouseInArea, 
-            handleSearchTrendingMouseIn, handleSearchTrendingMouseOut, handleSearchTrendingPageIndex} = this.props
+            handleSearchTrendingMouseIn, handleSearchTrendingMouseOut, handleSearchTrendingPageIndex, 
+            searchTrendingPageTotal} = this.props
     const jsTrendingList = trendList.toJS();
     if(focused || searchTrendingMouseInArea) {  
       const currentDisplaySearchTrendList = [];
@@ -29,7 +30,7 @@ class Header extends Component {
         >
           <SearchInfoTitle>
             Trending
-            <SearchInfoSwitch onClick={handleSearchTrendingPageIndex}>
+            <SearchInfoSwitch onClick={() => handleSearchTrendingPageIndex(searchTrendingPageIndex,searchTrendingPageTotal)}>
               Update
             </SearchInfoSwitch>
           </SearchInfoTitle>
@@ -78,7 +79,7 @@ const mapStateToProps = (state) => {
     //focused: state.get('header').get('focused') 
     trendList: state.getIn(['header','trendList']),
     searchTrendingPageIndex: state.getIn(['header','searchTrendingPage']),
-    searchTrendingMouseInArea: state.getIn(['header','searchTrendingMouseIn'])
+    searchTrendingPageTotal: state.getIn(['header','searchTrendingPageTotal']),    searchTrendingMouseInArea: state.getIn(['header','searchTrendingMouseIn'])
   }
 }
 
@@ -99,8 +100,13 @@ const mapDispathToProps = (dispatch) => {
     handleSearchTrendingMouseOut() {
       dispatch(actionCreators.searchTrendingMouseOut());
     },
-    handleSearchTrendingPageIndex() {
-      dispatch(actionCreators.searchTrendingPageIndex());
+    handleSearchTrendingPageIndex(page, totalPage) {
+      if(page<totalPage){
+        dispatch(actionCreators.searchTrendingPageIndex(page+1));
+      }else{
+        dispatch(actionCreators.searchTrendingPageIndex(1));
+      }
+      
     }
   }
 }

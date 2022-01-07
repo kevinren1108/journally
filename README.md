@@ -1,11 +1,12 @@
 #### Js
-React
-Redux
-React-Redux
-Redux-thunk
-styled-component.js
-immutable.js
-axios
+- React
+- Redux
+- React-redux
+- Redux-thunk
+- styled-component.js
+- immutable.js
+- axios
+- React-router-dom v6
 
 # Getting Started with Create React App
 

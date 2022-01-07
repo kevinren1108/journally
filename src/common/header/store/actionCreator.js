@@ -43,6 +43,7 @@ export const searchTrendingMouseOut = () => ({
   type: actionTypes.UPDATA_MOUSE_OUT
 })
 
-export const searchTrendingPageIndex = () => ({
-  type: actionTypes.UPDATA_SEARCH_TRENDING_PAGE_INDEX
+export const searchTrendingPageIndex = (Page) => ({
+  type: actionTypes.UPDATA_SEARCH_TRENDING_PAGE_INDEX,
+  newPage: Page
 })

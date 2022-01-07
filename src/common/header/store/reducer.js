@@ -17,7 +17,10 @@ export default (state = defaultState, action) => {
     return state.set('focused',false)
   }
   if(action.type === actionTypes.UPDATE_TRENDING_LIST){
-    const newState = state.set('trendList',action.newTrendingList).set('searchTrendingPageTotal', action.totalPage);
+    const newState = state.merge({
+      trendList: action.newTrendingList,
+      searchTrendingPageTotal: action.totalPage
+    })
     return newState
   }
   if(action.type === actionTypes.UPDATA_MOUSE_IN){
@@ -26,14 +29,8 @@ export default (state = defaultState, action) => {
   if(action.type === actionTypes.UPDATA_MOUSE_OUT){
     return state.set('searchTrendingMouseIn',false)
   }
-  if(action.type === actionTypes.UPDATA_SEARCH_TRENDING_PAGE_INDEX){//need  fix
-    console.log(action.searchTrendingPage)
-    if(action.searchTrendingPage < action.searchTrendingPageTotal){
-      
-      const newIndex = action.searchTrendingPage + 1
-      console.log(newIndex)
-      return state.set('searchTrendingPage',newIndex)
-    }
+  if(action.type === actionTypes.UPDATA_SEARCH_TRENDING_PAGE_INDEX){
+    return state.set('searchTrendingPage',action.newPage)
   }
   return state;
 }
