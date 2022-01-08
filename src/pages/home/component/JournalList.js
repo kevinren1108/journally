@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { JournalListWrapper, JournalListItem } from '../style'
+import { connect } from 'react-redux';
+import { JournalListWrapper, JournalListItem,
+         JournalListItemTitle, JournalListItemAbstract } from '../style'
 
 class JournalList extends Component {
   constructor(props) {
@@ -9,21 +11,32 @@ class JournalList extends Component {
   render() { 
     return ( 
       <JournalListWrapper>
-        <JournalListItem>
-          1
-        </JournalListItem>
-        <JournalListItem>
-          1
-        </JournalListItem>
-        <JournalListItem>
-          1
-        </JournalListItem>
-        <JournalListItem>
-          1
-        </JournalListItem>
+        { 
+          this.props.journalList.map((item) => {
+            return(
+              <JournalListItem key={item.get('id')}>
+                <JournalListItemTitle>{item.get('title')}</JournalListItemTitle>
+                <JournalListItemAbstract>{item.get('journalContent')}</JournalListItemAbstract>
+              </JournalListItem>
+            )
+          })
+        }
       </JournalListWrapper>
      );
   }
 }
  
-export default JournalList;
+const mapStateToProps = (state) => {
+  return {
+    journalList: state.getIn(['home','journalList']),
+
+  }
+}
+
+const mapDispathToProps = (dispatch) => {
+  return {
+    
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(JournalList);

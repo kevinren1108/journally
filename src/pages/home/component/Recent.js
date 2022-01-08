@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { RecentWrapper, RecentItem, RecentItemTitle, RecentWrapperTitle } from '../style'
 
 class Recent extends Component {
   constructor(props) {
@@ -7,7 +9,19 @@ class Recent extends Component {
   }
   render() { 
     return ( 
-      <div>Recent</div>
+      <RecentWrapper>
+        Recent
+        <RecentItem>
+          <RecentItemTitle>
+          Half of all people offered Moderna COVID-19 vaccine refuse it
+          </RecentItemTitle>
+        </RecentItem>
+        <RecentItem>
+          <RecentItemTitle>
+          Could a new tax on homes worth $1M and up help fix Canada's housing crisis
+          </RecentItemTitle>
+        </RecentItem>
+      </RecentWrapper>
      );
   }
 }
