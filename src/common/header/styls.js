@@ -21,11 +21,13 @@ background-size: contain;
 `
 
 export const Nav = styled.div`
+  padding-left: 140px;
   width: 700px;
   height: 100%;
   padding-right: 70px;
   box-sizing: border-box;
   margin: 0 auto;
+  float: left;
 `
 
 export const NavItem = styled.div`

@@ -1,29 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { RecentWrapper, RecentItem, RecentItemTitle, RecentWrapperTitle } from '../style'
+import { TypeWrapper, TypeItem, TypeItemTitle, TypeWrapperTitle } from '../style'
 
-class Recent extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
+class Type extends Component {
   render() { 
     return ( 
-      <RecentWrapper>
-        Recent
-        <RecentItem>
-          <RecentItemTitle>
-          Half of all people offered Moderna COVID-19 vaccine refuse it
-          </RecentItemTitle>
-        </RecentItem>
-        <RecentItem>
-          <RecentItemTitle>
-          Could a new tax on homes worth $1M and up help fix Canada's housing crisis
-          </RecentItemTitle>
-        </RecentItem>
-      </RecentWrapper>
+      <TypeWrapper>
+        Type
+        { 
+          this.props.journalList.map((item) => {
+            return(
+              <TypeItem key={item.get('id')}>
+                <TypeItemTitle>{item.get('type')}</TypeItemTitle>
+              </TypeItem>
+            )
+          })
+        }
+      </TypeWrapper>
      );
   }
 }
  
-export default Recent;
+
+const mapStateToProps = (state) => {
+  return {
+    journalList: state.getIn(['home','journalList']),
+
+  }
+}
+
+export default connect(mapStateToProps, null)(Type);

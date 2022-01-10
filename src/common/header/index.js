@@ -51,11 +51,10 @@ class Header extends Component {
   render() { 
     const { handleInputFocused, handleInputBlur , focused } = this.props
     return ( 
-    <HeaderWrapper> 
-      <Logo/>
+    <HeaderWrapper>       
       <Nav>
-        <NavItem className='left active'>Homepage</NavItem>
-        <NavItem className='right'>Sign in</NavItem>
+        <Logo/>
+        <NavItem className='left active'>Homepage</NavItem>   
         <SearchWrapper>
           <NavSearch 
             onFocus={handleInputFocused}
@@ -68,6 +67,7 @@ class Header extends Component {
       <Addition>
         <Button className='writting'>Write Journal</Button>
         <Button className='reg'>Register</Button>
+        <Button className='sign in'>Sign in</Button>
       </Addition>
     </HeaderWrapper>  );
   }

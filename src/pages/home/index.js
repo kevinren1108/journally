@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import JournalList from './component/JournalList';
 import Recent from './component/Recent';
 import { HomeWrapper, HomeLeft, HomeRight } from './style';
-
+import { actionCreator } from './store';
+import { connect } from 'react-redux';
 
 class Home extends Component {
   constructor(props) {
@@ -21,6 +22,16 @@ class Home extends Component {
       </HomeWrapper>
      );
   }
+
+  componentDidMount() {
+    this.props.handleFetchJournalAPI()
+  }
 }
- 
-export default Home;
+
+const mapDispathToProps = (dispatch) => ({
+  handleFetchJournalAPI() {
+    dispatch(actionCreator.fetchJournalAPI());
+  }
+})
+
+export default connect(null, mapDispathToProps)(Home);

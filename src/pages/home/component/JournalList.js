@@ -4,10 +4,6 @@ import { JournalListWrapper, JournalListItem,
          JournalListItemTitle, JournalListItemAbstract } from '../style'
 
 class JournalList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
   render() { 
     return ( 
       <JournalListWrapper>
@@ -33,10 +29,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispathToProps = (dispatch) => {
-  return {
-    
-  }
-}
-
-export default connect(mapStateToProps, mapDispathToProps)(JournalList);
+export default connect(mapStateToProps, null)(JournalList);

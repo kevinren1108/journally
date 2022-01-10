@@ -50,7 +50,7 @@ export const JournalListItemAbstract = styled.div`
   color: #999;
 `
 
-export const  RecentWrapper  =  styled.div`
+export const  TypeWrapper  =  styled.div`
   padding: 20px 0 10px  0;
   overflow: hidden;
   box-sizing: border-box;
@@ -59,14 +59,14 @@ export const  RecentWrapper  =  styled.div`
   color: #969696;
 `
 
-export const  RecentItem  =  styled.div`
+export const  TypeItem  =  styled.div`
   padding: 3px 0;
   line-height: 20px;
   color: #000;
   border-bottom: 1px solid #dcdcdc;
   
 `
-export const RecentItemTitle = styled.a`
+export const TypeItemTitle = styled.a`
   padding-top: 3px;
   font-size: 10px;
   display: block;
