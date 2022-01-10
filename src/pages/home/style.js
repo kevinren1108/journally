@@ -72,3 +72,27 @@ export const TypeItemTitle = styled.a`
   display: block;
   color: #333333;
 `
+
+export const LoadMore = styled.div`
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  background: #a5a5a5;
+  text-align: center;
+  border-radius: 20px;
+  color: #fff;
+  margin: 30px 0;
+  cursor: pointer;
+`
+
+export const BackTop = styled.div`
+  position: fixed;
+  right: 50px;
+  bottom: 20px;
+  width: 70px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: px;
+`

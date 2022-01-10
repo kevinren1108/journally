@@ -19,3 +19,17 @@ export const fetchJournalAPI = () => {
   }
 }
 
+export const getMoreList = (page) => {
+  page = page+1;
+  return ({
+    type: actionType.GET_MORE_LIST,
+    nextPage: page
+  })
+} 
+
+export const toggleTopShow = (bool) => {
+  return ({
+    type: actionType.TOGGLE_TOP_SHOW,
+    bool: bool
+  })
+}

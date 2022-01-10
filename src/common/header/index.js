@@ -79,7 +79,8 @@ const mapStateToProps = (state) => {
     //focused: state.get('header').get('focused') 
     trendList: state.getIn(['header','trendList']),
     searchTrendingPageIndex: state.getIn(['header','searchTrendingPage']),
-    searchTrendingPageTotal: state.getIn(['header','searchTrendingPageTotal']),    searchTrendingMouseInArea: state.getIn(['header','searchTrendingMouseIn'])
+    searchTrendingPageTotal: state.getIn(['header','searchTrendingPageTotal']),   
+    searchTrendingMouseInArea: state.getIn(['header','searchTrendingMouseIn'])
   }
 }
 

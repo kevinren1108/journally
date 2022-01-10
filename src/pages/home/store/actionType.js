@@ -1,1 +1,3 @@
-export const CHANGE_HOME_DATA = 'header/CHANGE_HOME_DATA'
+export const CHANGE_HOME_DATA = 'CHANGE_HOME_DATA'
+export const GET_MORE_LIST = 'GET_MORE_LIST'
+export const TOGGLE_TOP_SHOW = 'TOGGLE_TOP_SHOW'

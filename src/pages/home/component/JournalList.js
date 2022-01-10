@@ -1,10 +1,14 @@
+import { getIn } from 'immutable';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { JournalListWrapper, JournalListItem,
-         JournalListItemTitle, JournalListItemAbstract } from '../style'
+         JournalListItemTitle, JournalListItemAbstract,
+         LoadMore } from '../style'
+import * as actionCreator from '../store/actionCreator';
 
 class JournalList extends Component {
   render() { 
+    const { getMoreList,page } = this.props
     return ( 
       <JournalListWrapper>
         { 
@@ -17,16 +21,27 @@ class JournalList extends Component {
             )
           })
         }
+        <LoadMore onClick={ () => getMoreList(page)}>Load more</LoadMore>
       </JournalListWrapper>
      );
   }
 }
- 
-const mapStateToProps = (state) => {
-  return {
-    journalList: state.getIn(['home','journalList']),
 
+const mapDispathToProps = (dispatch) => {
+  return{
+    getMoreList(page) {
+      const action = actionCreator.getMoreList(page)
+      dispatch(action)
+    }
   }
 }
 
-export default connect(mapStateToProps, null)(JournalList);
+const mapStateToProps = (state) => {
+  return {
+    journalList: state.getIn(['home','journalList']),
+    journalListToDisplay : state.getIn(['home', 'journalListToDispaly']),
+    page: state.getIn(['home','currentDisplayPage'])
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(JournalList);
