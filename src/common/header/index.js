@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import { actionCreators } from './store/index.js';
 import{
   HeaderWrapper, Logo,
@@ -54,10 +55,11 @@ class Header extends Component {
     return ( 
     <HeaderWrapper>       
       <Nav>
-        
+        <Link to='/'>
           <Logo/>
+        </Link>
         
-        <NavItem className='left active'>Homepage</NavItem>   
+        <Link to='/'><NavItem className='left active'>Homepage</NavItem> </Link>  
         <SearchWrapper>
           <NavSearch 
             onFocus={handleInputFocused}

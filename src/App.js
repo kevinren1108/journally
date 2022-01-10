@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import Header from './common/header/index.js';
 import store from './store/index.js'
 import Home from './pages/home'
@@ -16,12 +16,10 @@ class App extends PureComponent {
     return ( 
       <Provider store={store}>
         <Header />
-        <BrowserRouter>
           <Routes>
             <Route path='/' exact element={<Home />}></Route>
             <Route path='/detail' exact element={<Detail />}></Route>
           </Routes>
-        </BrowserRouter>
       </Provider>
     );
   }

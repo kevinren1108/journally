@@ -34,7 +34,7 @@ export const  JournalListItem  =  styled.div`
   border-bottom: 1px solid #dcdcdc;
   border-radius: 4px;
 `
-export const JournalListItemTitle = styled.a`
+export const JournalListItemTitle = styled.div`
   margin: -7px 0 4px;
   display: inherit;
   font-size: 18px;
