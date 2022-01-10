@@ -1,12 +1,13 @@
 import { getIn } from 'immutable';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { JournalListWrapper, JournalListItem,
          JournalListItemTitle, JournalListItemAbstract,
          LoadMore } from '../style'
 import * as actionCreator from '../store/actionCreator';
+import { Link } from 'react-router-dom';
 
-class JournalList extends Component {
+class JournalList extends PureComponent {
   render() { 
     const { getMoreList,page } = this.props
     return ( 
@@ -14,10 +15,12 @@ class JournalList extends Component {
         { 
           this.props.journalList.map((item) => {
             return(
+             
               <JournalListItem key={item.get('id')}>
                 <JournalListItemTitle>{item.get('title')}</JournalListItemTitle>
                 <JournalListItemAbstract>{item.get('journalContent')}</JournalListItemAbstract>
               </JournalListItem>
+              
             )
           })
         }

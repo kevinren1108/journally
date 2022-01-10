@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { actionCreators } from './store/index.js';
 import{
   HeaderWrapper, Logo,
@@ -53,7 +54,9 @@ class Header extends Component {
     return ( 
     <HeaderWrapper>       
       <Nav>
-        <Logo/>
+        
+          <Logo/>
+        
         <NavItem className='left active'>Homepage</NavItem>   
         <SearchWrapper>
           <NavSearch 

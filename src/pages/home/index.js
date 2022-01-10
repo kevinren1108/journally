@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import JournalList from './component/JournalList';
 import Recent from './component/Recent';
 import { HomeWrapper, HomeLeft, HomeRight, BackTop } from './style';
 import { actionCreator } from './store';
 import { connect } from 'react-redux';
 
-class Home extends Component {
+class Home extends PureComponent {
   render() { 
     const {scrollTop, showBackTop} = this.props
     return ( 

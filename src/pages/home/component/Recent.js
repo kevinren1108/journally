@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { TypeWrapper, TypeItem, TypeItemTitle, TypeWrapperTitle } from '../style'
 
-class Type extends Component {
+class Type extends PureComponent {
   render() { 
     return ( 
       <TypeWrapper>
