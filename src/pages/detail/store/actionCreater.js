@@ -1,4 +1,5 @@
 import axios from "axios"
+import * as actionType from "./actionType"
 
 export const getDetail = () => {
   return (dispatch) => {
@@ -12,7 +13,7 @@ export const getDetail = () => {
 
 const changeDetail = (title,content) => (
   {
-  type: 'CHANGE_DETAIL',
+  type: actionType.CHANGE_DETAIL,
   title,
   content
   }

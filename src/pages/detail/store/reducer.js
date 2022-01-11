@@ -8,7 +8,7 @@ const defaultState = fromJS({
 });
 
 export default (state = defaultState, action) => {
-  if(action.type === 'CHANGE_DETAIL'){
+  if(action.type === actionType.CHANGE_DETAIL){
     return state.merge({
       detailJournalTitle: action.title,
       detailJournalContent: action.content

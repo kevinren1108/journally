@@ -18,7 +18,7 @@ class App extends PureComponent {
         <Header />
           <Routes>
             <Route path='/' exact element={<Home />}></Route>
-            <Route path='/detail' exact element={<Detail />}></Route>
+            <Route path='/detail/id=:id' exact element={<Detail />}></Route>
           </Routes>
       </Provider>
     );

@@ -2,26 +2,21 @@ import React, { Component } from 'react';
 import { DetailWrapper, DetailHeader, DetailContent } from './style';
 import { connect } from 'react-redux';
 import { actionCreator } from './store/index.js';
+import { useParams } from 'react-router-dom';
 
-class Detail extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {  }
-  }
-  render() { 
-    return ( 
-      <DetailWrapper>
-        <DetailHeader>
-          {this.props.detailJournalTitle}
-        </DetailHeader>
-        <DetailContent dangerouslySetInnerHTML={{__html: this.props.detailJournalContent}} />
-      </DetailWrapper>
-     );
-  }
-
-  componentDidMount() {
-    this.props.getDetail();
-  }
+function Detail(props) {
+  props.getDetail()
+  const { id } = useParams();
+  return ( 
+    <DetailWrapper>
+      <DetailHeader>
+        {props.detailJournalTitle}
+      </DetailHeader>
+      <DetailContent /*dangerouslySetInnerHTML={{__html: props.detailJournalContent}}*/>
+        {props.detailJournalContent}
+      </DetailContent>
+    </DetailWrapper>
+  );
 }
 
 const mapDispathToProps = (dispatch) => ({

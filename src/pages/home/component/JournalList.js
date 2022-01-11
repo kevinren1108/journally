@@ -15,7 +15,7 @@ class JournalList extends PureComponent {
         { 
           this.props.journalList.map((item) => {
             return(
-            <Link style={{ textDecoration: 'none' }} key={item.get('id')} to='/detail'>
+            <Link style={{ textDecoration: 'none' }} key={item.get('id')} to={'/detail/id=' + item.get('id')}>
               <JournalListItem key={item.get('id')}>
                 <JournalListItemTitle>{item.get('title')}</JournalListItemTitle>
                 <JournalListItemAbstract>{item.get('journalContent')}</JournalListItemAbstract>
