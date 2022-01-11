@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { DetailWrapper, DetailHeader, DetailContent } from './style';
+import { connect } from 'react-redux';
+import { actionCreator } from './store/index.js';
 
 class Detail extends Component {
   constructor(props) {
@@ -10,26 +12,29 @@ class Detail extends Component {
     return ( 
       <DetailWrapper>
         <DetailHeader>
-          sequi ducimus quis
+          {this.props.detailJournalTitle}
         </DetailHeader>
-        <DetailContent>
-          <p>
-          Voluptatem architecto non blanditiis quidem pariatur officia in autem. Deleniti qui optio in quibusdam. Cupiditate et alias et voluptas et reiciendis molestias. Et et repellat inventore qui quo similique. Non itaque dolores optio praesentium occaecati. Quo commodi ex qui. Sed illum accusantium ut autem omnis fugit. Eum et qui eos voluptatem quam quidem omnis molestiae. Quibusdam incidunt et molestiae deserunt. Repellat quam asperiores ea est repellat. Mollitia libero itaque. Quo voluptas itaque et quis sed est impedit.
-          </p>
-          <p>
-          Voluptatem architecto non blanditiis quidem pariatur officia in autem. Deleniti qui optio in quibusdam. Cupiditate et alias et voluptas et reiciendis molestias. Et et repellat inventore qui quo similique. Non itaque dolores optio praesentium occaecati. Quo commodi ex qui. Sed illum accusantium ut autem omnis fugit. Eum et qui eos voluptatem quam quidem omnis molestiae. Quibusdam incidunt et molestiae deserunt. Repellat quam asperiores ea est repellat. Mollitia libero itaque. Quo voluptas itaque et quis sed est impedit.
-          </p>
-          <p>
-          Voluptatem architecto non blanditiis quidem pariatur officia in autem. Deleniti qui optio in quibusdam. Cupiditate et alias et voluptas et reiciendis molestias. Et et repellat inventore qui quo similique. Non itaque dolores optio praesentium occaecati. Quo commodi ex qui. Sed illum accusantium ut autem omnis fugit. Eum et qui eos voluptatem quam quidem omnis molestiae. Quibusdam incidunt et molestiae deserunt. Repellat quam asperiores ea est repellat. Mollitia libero itaque. Quo voluptas itaque et quis sed est impedit.
-          </p>
-          <p>
-          Voluptatem architecto non blanditiis quidem pariatur officia in autem. Deleniti qui optio in quibusdam. Cupiditate et alias et voluptas et reiciendis molestias. Et et repellat inventore qui quo similique. Non itaque dolores optio praesentium occaecati. Quo commodi ex qui. Sed illum accusantium ut autem omnis fugit. Eum et qui eos voluptatem quam quidem omnis molestiae. Quibusdam incidunt et molestiae deserunt. Repellat quam asperiores ea est repellat. Mollitia libero itaque. Quo voluptas itaque et quis sed est impedit.
-          </p>
-          
-        </DetailContent>
+        <DetailContent dangerouslySetInnerHTML={{__html: this.props.detailJournalContent}} />
       </DetailWrapper>
      );
   }
+
+  componentDidMount() {
+    this.props.getDetail();
+  }
 }
- 
-export default Detail;
+
+const mapDispathToProps = (dispatch) => ({
+  getDetail() {
+    dispatch(actionCreator.getDetail())
+  }
+})
+
+const mapStateToProps = (state) => {
+  return {
+    detailJournalTitle: state.getIn(['detail','detailJournalTitle']),
+    detailJournalContent : state.getIn(['detail', 'detailJournalContent']),
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Detail);

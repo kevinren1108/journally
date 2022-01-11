@@ -1,8 +1,8 @@
 import reducer from "./reducer";
 import * as actionCreator from './actionCreator'
-import * as actionTtpe from './actionType'
+import * as actionType from './actionType'
 
-export { reducer, actionCreator };
+export { reducer, actionCreator, actionType };
 
 
 
