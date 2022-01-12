@@ -10,3 +10,8 @@ This website is an experimental singla page web application. This experimental p
 - axios
 - React-router-dom v6
 
+### Install
+npm install
+
+### Run
+npm start
