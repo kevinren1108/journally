@@ -7,17 +7,17 @@ const updateTrendingList = (data) => ({
   type: actionTypes.UPDATE_TRENDING_LIST,
   newTrendingList: fromJS(data),
   totalPage: Math.ceil(data.length /10)
-})
+});
 
 
 
 export const searchFocus = () => ({
   type: actionTypes.SEARCH_FOCUS
-})
+});
 
 export const searchBlur = () => ({
   type: actionTypes.SEARCH_BLUR
-})
+});
 
 export const getTrendList = () => {
   return (dispatch) => {
@@ -35,17 +35,17 @@ export const getTrendList = () => {
       console.log("API offline")
     })
   }
-}
+};
 
 export const searchTrendingMouseIn = () => ({
   type: actionTypes.UPDATA_MOUSE_IN
-})
+});
 
 export const searchTrendingMouseOut = () => ({
   type: actionTypes.UPDATA_MOUSE_OUT
-})
+});
 
 export const searchTrendingPageIndex = (Page) => ({
   type: actionTypes.UPDATA_SEARCH_TRENDING_PAGE_INDEX,
   newPage: Page
-})
+});

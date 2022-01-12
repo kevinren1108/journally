@@ -18,19 +18,19 @@ function Detail(props) {
       </DetailContent>
     </DetailWrapper>
   );
-}
+};
 
 const mapDispathToProps = (dispatch) => ({
   getDetail() {
     dispatch(actionCreator.getDetail())
   }
-})
+});
 
 const mapStateToProps = (state) => {
   return {
     detailJournalTitle: state.getIn(['detail','detailJournalTitle']),
     detailJournalContent : state.getIn(['detail', 'detailJournalContent']),
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispathToProps)(Detail);

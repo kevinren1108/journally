@@ -19,23 +19,23 @@ class Home extends PureComponent {
         { showBackTop ? <BackTop onClick={scrollTop}>BackTop</BackTop> : null}
       </HomeWrapper>
      );
-  }
+  };
 
   componentDidMount() {
     this.props.handleFetchJournalAPI()
     this.bindEvents();
-  }
+  };
 
   bindEvents() {
     window.addEventListener('scroll' , this.props.handleScrollTop)
-  }
-}
+  };
+};
 
 const mapStateToProps = (state) => {
   return {
     showBackTop: state.getIn(['home','showBackTop'])
   }
-}
+};
 
 const mapDispathToProps = (dispatch) => ({
   handleFetchJournalAPI() {
@@ -51,6 +51,6 @@ const mapDispathToProps = (dispatch) => ({
       dispatch(actionCreator.toggleTopShow(false))
     }
   }
-})
+});
 
 export default connect(mapStateToProps, mapDispathToProps)(Home);

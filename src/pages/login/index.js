@@ -8,7 +8,7 @@ class Login extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {  }
-  }
+  };
   render() { 
     const {loginState} = this.props
 
@@ -29,19 +29,19 @@ class Login extends PureComponent {
 
     
   }
-}
+};
  
 const mapDispathToProps = (dispatch) => ({
   login(accountElem,passwordElem){
     dispatch(actionCreator.login(accountElem.value,passwordElem.value))
     
   }
-})
+});
 
 const mapStateToProps = (state) => {
   return {
     loginState: state.getIn(['loginState','login'])
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispathToProps)(Login);

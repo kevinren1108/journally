@@ -19,7 +19,7 @@ class Type extends PureComponent {
       </TypeWrapper>
      );
   }
-}
+};
  
 
 const mapStateToProps = (state) => {
@@ -27,6 +27,6 @@ const mapStateToProps = (state) => {
     journalList: state.getIn(['home','journalList']),
 
   }
-}
+};
 
 export default connect(mapStateToProps, null)(Type);

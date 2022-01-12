@@ -44,7 +44,7 @@ class Header extends Component {
     }else {
       return null;
     }
-  }
+  };
   /*
   need update this function, change class component to 
   function component and use reactjsv17 hook. 
@@ -52,11 +52,11 @@ class Header extends Component {
   */
   UNSAFE_componentWillMount(){
     this.props.handleFetchSearchTrendingAPI()
-  }
+  };
 
   componentDidMount(){
     //this.props.handleFetchSearchTrendingAPI()
-  }  
+  }; 
 
   render() { 
     const { handleInputFocused, handleInputBlur , focused, loginState, handleLogOut } = this.props
@@ -79,12 +79,12 @@ class Header extends Component {
       </Nav>   
       {
         loginState ? 
-          <Addition><Button onClick={handleLogOut} className='log out'>Log out</Button><Button className='writting'>Write Journal</Button></Addition> :
+          <Addition><Button onClick={handleLogOut} className='log out'>Log out</Button><Link to='/write'><Button className='writting'>Write Journal</Button></Link></Addition> :
           <Addition><Link to='/login'><Button className='login'>Log in</Button></Link><Button className='reg'>Register</Button></Addition>
       } 
     </HeaderWrapper>  );
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -96,7 +96,7 @@ const mapStateToProps = (state) => {
     searchTrendingMouseInArea: state.getIn(['header','searchTrendingMouseIn']),
     loginState: state.getIn(['loginState','login'])
   }
-}
+};
 
 const mapDispathToProps = (dispatch) => {
   return {
@@ -127,6 +127,6 @@ const mapDispathToProps = (dispatch) => {
       dispatch(loginActionCreator.logOut());
     }
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispathToProps)(Header);

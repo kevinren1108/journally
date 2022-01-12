@@ -10,6 +10,6 @@ class Footer extends PureComponent {
       <div>Footeer  </div>
      );
   }
-}
+};
  
 export default Footer;

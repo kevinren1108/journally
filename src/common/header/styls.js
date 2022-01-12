@@ -17,7 +17,7 @@ width: 104px;
 height: 44px;
 background: url(${logoPic});
 background-size: contain;
-`
+`;
 
 export const Nav = styled.div`
   padding-left: 140px;
@@ -27,7 +27,7 @@ export const Nav = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
   float: left;
-`
+`;
 
 export const NavItem = styled.div`
   line-height: 58px;
@@ -45,7 +45,8 @@ export const NavItem = styled.div`
   &.active{
     color: #ea6f5a;
   }
-`
+`;
+
 export const  NavSearch =  styled.input.attrs({
   placeholder: 'Search'
 })`
@@ -66,7 +67,7 @@ export const  NavSearch =  styled.input.attrs({
   &.focused {
     width: 240px;
   }
-`
+`;
 
 export const Addition = styled.div`
   position: absolute;
@@ -74,7 +75,7 @@ export const Addition = styled.div`
   top: 0;
   height: 58px;
 
-`
+`;
 
 export const Button = styled.button`
   float: right;
@@ -96,12 +97,12 @@ export const Button = styled.button`
     color: #fff;
     background: #ec6149;
   }
-`
+`;
 
 export const SearchWrapper = styled.div`
   position: relative;
   float: left;
-`
+`;
 
 export const SearchInfo = styled.div`
   position: absolute;
@@ -112,7 +113,7 @@ export const SearchInfo = styled.div`
   padding: 0 20px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   background: white;
-`
+`;
 
 export const SearchInfoTitle = styled.div`
   margin-top: 10px;
@@ -120,13 +121,13 @@ export const SearchInfoTitle = styled.div`
   line-height: 20px;
   font-size: 14px;
   color: #787878
-`
+`;
 
 export const SearchInfoSwitch = styled.div`
  float: right;
  font-size: 13px;
  cursor: pointer;
-`
+`;
 
 export const SearchInfoItem = styled.a`
   display: block;
@@ -139,9 +140,9 @@ export const SearchInfoItem = styled.a`
   border-radius: 3px;
   margin-right: 5px;
   margin-bottom: 5px;
-`
+`;
 
 export const SearchInfoList = styled.div`
  overflow: hidden;
-`
+`;
 

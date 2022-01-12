@@ -9,7 +9,7 @@ export const getDetail = () => {
         dispatch(changeDetail(result[0].title, result[0].journalContent))
       })
   }
-}
+};
 
 const changeDetail = (title,content) => (
   {
@@ -17,4 +17,4 @@ const changeDetail = (title,content) => (
   title,
   content
   }
-)
+);

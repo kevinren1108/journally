@@ -33,4 +33,4 @@ export default (state = defaultState, action) => {
     return state.set('searchTrendingPage',action.newPage)
   }
   return state;
-}
+};

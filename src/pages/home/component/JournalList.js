@@ -28,7 +28,7 @@ class JournalList extends PureComponent {
       </JournalListWrapper>
      );
   }
-}
+};
 
 const mapDispathToProps = (dispatch) => {
   return{
@@ -37,7 +37,7 @@ const mapDispathToProps = (dispatch) => {
       dispatch(action)
     }
   }
-}
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -45,6 +45,6 @@ const mapStateToProps = (state) => {
     journalListToDisplay : state.getIn(['home', 'journalListToDispaly']),
     page: state.getIn(['home','currentDisplayPage'])
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispathToProps)(JournalList);

@@ -5,7 +5,7 @@ const changeLogin = () => (
   {
   type: actionType.CHANGE_LOGIN,
   value: true
-})
+});
 
 export const login = (account,password) =>{
   return (dispatch) => {
@@ -19,9 +19,9 @@ export const login = (account,password) =>{
         }
       })
   }
-}
+};
 
 export const logOut = () => ({
   type: actionType.LOG_OUT
-})
+});
 
