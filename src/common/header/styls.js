@@ -88,6 +88,10 @@ export const Button = styled.button`
   &.reg {
     color: #ec6149;
   }
+  &.login{
+    color: #ec6149;
+    cursor: pointer;
+  }
   &.writting {
     color: #fff;
     background: #ec6149;

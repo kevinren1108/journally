@@ -9,6 +9,8 @@ const updateTrendingList = (data) => ({
   totalPage: Math.ceil(data.length /10)
 })
 
+
+
 export const searchFocus = () => ({
   type: actionTypes.SEARCH_FOCUS
 })

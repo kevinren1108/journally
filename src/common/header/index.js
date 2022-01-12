@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Route, Routes} from 'react-router-dom';
 import { actionCreators } from './store/index.js';
+import { actionCreator as loginActionCreator } from '../../pages/login/store';
 import{
   HeaderWrapper, Logo,
   Nav,NavItem,
@@ -13,7 +13,7 @@ import{
   Button,
 } from './styls.js'
 
-
+var loginButton
 class Header extends Component {
   getListArea() {
     const { focused, trendList, searchTrendingPageIndex, searchTrendingMouseInArea, 
@@ -45,13 +45,21 @@ class Header extends Component {
       return null;
     }
   }
+  /*
+  need update this function, change class component to 
+  function component and use reactjsv17 hook. 
+  useLayoutEffect()
+  */
+  UNSAFE_componentWillMount(){
+    this.props.handleFetchSearchTrendingAPI()
+  }
 
   componentDidMount(){
-    this.props.handleFetchSearchTrendingAPI()
+    //this.props.handleFetchSearchTrendingAPI()
   }  
 
   render() { 
-    const { handleInputFocused, handleInputBlur , focused } = this.props
+    const { handleInputFocused, handleInputBlur , focused, loginState, handleLogOut } = this.props
     return ( 
     <HeaderWrapper>       
       <Nav>
@@ -68,12 +76,12 @@ class Header extends Component {
           />
           {this.getListArea()}
         </SearchWrapper>
-      </Nav>
-      <Addition>
-        <Button className='writting'>Write Journal</Button>
-        <Button className='reg'>Register</Button>
-        <Button className='sign in'>Sign in</Button>
-      </Addition>
+      </Nav>   
+      {
+        loginState ? 
+          <Addition><Button onClick={handleLogOut} className='log out'>Log out</Button><Button className='writting'>Write Journal</Button></Addition> :
+          <Addition><Link to='/login'><Button className='login'>Log in</Button></Link><Button className='reg'>Register</Button></Addition>
+      } 
     </HeaderWrapper>  );
   }
 }
@@ -85,7 +93,8 @@ const mapStateToProps = (state) => {
     trendList: state.getIn(['header','trendList']),
     searchTrendingPageIndex: state.getIn(['header','searchTrendingPage']),
     searchTrendingPageTotal: state.getIn(['header','searchTrendingPageTotal']),   
-    searchTrendingMouseInArea: state.getIn(['header','searchTrendingMouseIn'])
+    searchTrendingMouseInArea: state.getIn(['header','searchTrendingMouseIn']),
+    loginState: state.getIn(['loginState','login'])
   }
 }
 
@@ -112,7 +121,10 @@ const mapDispathToProps = (dispatch) => {
       }else{
         dispatch(actionCreators.searchTrendingPageIndex(1));
       }
-      
+    },
+
+    handleLogOut() {
+      dispatch(loginActionCreator.logOut());
     }
   }
 }

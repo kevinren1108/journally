@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
-import { LoginWrapper, LoginBox, Input } from './style.js'
+import { LoginWrapper, LoginBox, Input, Button } from './style.js'
+import * as actionCreator from './store/actionCreator'
+import { connect } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 
 class Login extends PureComponent {
   constructor(props) {
@@ -7,16 +10,38 @@ class Login extends PureComponent {
     this.state = {  }
   }
   render() { 
-    return ( 
-      <LoginWrapper>
-        <LoginBox>
-          <Input placeholder='Account' />
-          <Input placeholder='Password' />
-        </LoginBox>
+    const {loginState} = this.props
 
-      </LoginWrapper>
-     );
+    if(!loginState){
+      return ( 
+        <LoginWrapper>
+          <LoginBox>
+            <Input placeholder='Account' ref={(input) => {this.account = input}} />
+            <Input placeholder='Password' type='password' ref={(input) => {this.password = input}}/>
+            <Button onClick={ () => this.props.login(this.account,this.password)}> Login </Button>
+          </LoginBox>
+  
+        </LoginWrapper>
+       )
+    }else{
+      return <Navigate to='/' />
+    }
+
+    
   }
 }
  
-export default Login;
+const mapDispathToProps = (dispatch) => ({
+  login(accountElem,passwordElem){
+    dispatch(actionCreator.login(accountElem.value,passwordElem.value))
+    
+  }
+})
+
+const mapStateToProps = (state) => {
+  return {
+    loginState: state.getIn(['loginState','login'])
+  }
+}
+
+export default connect(mapStateToProps, mapDispathToProps)(Login);
