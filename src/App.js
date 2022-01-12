@@ -5,6 +5,7 @@ import Header from './common/header/index.js';
 import store from './store/index.js'
 import Home from './pages/home'
 import Detail from './pages/detail'
+import Login from './pages/login/index.js';
 
 
 class App extends PureComponent {
@@ -17,6 +18,7 @@ class App extends PureComponent {
       <Provider store={store}>
         <Header />
           <Routes>
+            <Route path='/login' exact element={<Login />}></Route>
             <Route path='/' exact element={<Home />}></Route>
             <Route path='/detail/id=:id' exact element={<Detail />}></Route>
           </Routes>

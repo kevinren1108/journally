@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 function Detail(props) {
   props.getDetail()
   const { id } = useParams();
+  console.log(id)
   return ( 
     <DetailWrapper>
       <DetailHeader>
