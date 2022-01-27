@@ -11,6 +11,7 @@ export default (state = defaultState, action) => {
   }
   if(action.type === actionType.LOG_OUT){
     return state.set('login', false)
-  }
+  } 
+  
   return state;
 };
